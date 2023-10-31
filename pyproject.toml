@@ -1,0 +1,22 @@
+[build-system]
+requires = ["maturin>=1.3,<2"]
+build-backend = "maturin"
+
+[project]
+name = "pattingzoo"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+dependencies = ["pettingzoo==1.24.0"]
+
+[project.scripts]
+pat = "pattingzoo.demo:run"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "pattingzoo.pattingzoo_rs"
